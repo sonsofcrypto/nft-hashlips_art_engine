@@ -3,6 +3,7 @@ const { NETWORK } = require(`${basePath}/constants/network.js`);
 const fs = require("fs");
 
 const {
+  format,
   baseUri,
   description,
   namePrefix,
@@ -22,7 +23,7 @@ data.forEach((item) => {
   } else {
     item.name = `${namePrefix} #${item.edition}`;
     item.description = description;
-    item.image = `${baseUri}/${item.edition}.png`;
+    item.image = `${baseUri}/${item.edition}.${format.imageType}`;
   }
   fs.writeFileSync(
     `${basePath}/build/json/${item.edition}.json`,

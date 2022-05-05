@@ -147,3 +147,9 @@ dist
 
 layers/
 
+build/
+
+build_jpeg/
+
+build_png/
+

@@ -8,7 +8,7 @@ const network = NETWORK.eth;
 const namePrefix = "web3wallet NFT";
 const description = "For true sons of crypto who has been with us from day " +
                     "one! We take care of our OGs😍";
-const baseUri = "ipfs://NewUriToReplace";
+const baseUri = "ipfs://QmU6xKR5nm1hMzGbjrKgaB5fhFSF7i6CZZETocveyEZShL";
 
 const solanaMetadata = {
   symbol: "W3WNFT",
@@ -66,6 +66,7 @@ const format = {
   width: 1262,
   height: 1262,
   smoothing: false,
+  imageType: "jpeg", // png or jpeg
 };
 
 const gif = {

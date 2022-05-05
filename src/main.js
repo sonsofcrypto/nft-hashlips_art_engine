@@ -111,10 +111,17 @@ const layersSetup = (layersOrder) => {
 };
 
 const saveImage = (_editionCount) => {
-  fs.writeFileSync(
-    `${buildDir}/images/${_editionCount}.png`,
-    canvas.toBuffer("image/png")
-  );
+  if(format.imageType == "jpeg") {
+    fs.writeFileSync(
+        `${buildDir}/images/${_editionCount}.jpeg`,
+        canvas.toBuffer("image/jpeg", { quality: 1.0 } )
+    );
+  } else {
+    fs.writeFileSync(
+        `${buildDir}/images/${_editionCount}.png`,
+        canvas.toBuffer("image/png", { compressionLevel: 9 })
+    );
+  }
 };
 
 const genColor = () => {
@@ -133,7 +140,7 @@ const addMetadata = (_dna, _edition) => {
   let tempMetadata = {
     name: `${namePrefix} #${_edition}`,
     description: description,
-    image: `${baseUri}/${_edition}.png`,
+    image: `${baseUri}/${_edition}.${format.imageType}`,
     dna: sha1(_dna),
     edition: _edition,
     date: dateTime,
@@ -149,7 +156,7 @@ const addMetadata = (_dna, _edition) => {
       description: tempMetadata.description,
       //Added metadata for solana
       seller_fee_basis_points: solanaMetadata.seller_fee_basis_points,
-      image: `${_edition}.png`,
+      image: `${_edition}.${format.imageType}`,
       //Added metadata for solana
       external_url: solanaMetadata.external_url,
       edition: _edition,
@@ -158,8 +165,8 @@ const addMetadata = (_dna, _edition) => {
       properties: {
         files: [
           {
-            uri: `${_edition}.png`,
-            type: "image/png",
+            uri: `${_edition}.${format.imageType}`,
+            type: `image/${format.imageType}`,
           },
         ],
         category: "image",
