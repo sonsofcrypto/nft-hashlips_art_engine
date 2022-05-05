@@ -5,17 +5,18 @@ const { NETWORK } = require(`${basePath}/constants/network.js`);
 const network = NETWORK.eth;
 
 // General metadata for Ethereum
-const namePrefix = "Your Collection";
-const description = "Remember to replace this description";
+const namePrefix = "web3wallet NFT";
+const description = "For true sons of crypto who has been with us from day " +
+                    "one! We take care of our OGs😍";
 const baseUri = "ipfs://NewUriToReplace";
 
 const solanaMetadata = {
-  symbol: "YC",
-  seller_fee_basis_points: 1000, // Define how much % you want from secondary market sales 1000 = 10%
-  external_url: "https://www.youtube.com/c/hashlipsnft",
+  symbol: "W3WNFT",
+  seller_fee_basis_points: 100, // Define how much % you want from secondary market sales 1000 = 10%
+  external_url: "https://www.sonsofcrypto.com",
   creators: [
     {
-      address: "7fXNuer5sbZtaTEPhtJ5g5gNtuyRoKkvxdjEjEnPN4mC",
+      address: "0x9aA80dCeD760224d59BEFe358c7C66C45e3BEA1C",
       share: 100,
     },
   ],
@@ -24,26 +25,46 @@ const solanaMetadata = {
 // If you have selected Solana then the collection starts from 0 automatically
 const layerConfigurations = [
   {
-    growEditionSizeTo: 5,
+    growEditionSizeTo: 1079,
     layersOrder: [
       { name: "Background" },
-      { name: "Eyeball" },
-      { name: "Eye color" },
-      { name: "Iris" },
-      { name: "Shine" },
-      { name: "Bottom lid" },
-      { name: "Top lid" },
+      { name: "Ticket" },
+      { name: "Meme" },
+    ],
+  },
+  {
+    growEditionSizeTo: 1097, // Bronze
+    layersOrder: [
+      { name: "Background Bronze" },
+      { name: "Ticket Bronze" },
+      { name: "Meme Rare" },
+    ],
+  },
+  {
+    growEditionSizeTo: 1115, // Silver
+    layersOrder: [
+      { name: "Background Rare" },
+      { name: "Ticket Silver" },
+      { name: "Meme Rare" },
+    ],
+  },
+  {
+    growEditionSizeTo: 1133, // Gold
+    layersOrder: [
+      { name: "Background Super Rare" },
+      { name: "Ticket Gold" },
+      { name: "Meme Rare" },
     ],
   },
 ];
 
-const shuffleLayerConfigurations = false;
+const shuffleLayerConfigurations = true;
 
-const debugLogs = false;
+const debugLogs = true;
 
 const format = {
-  width: 512,
-  height: 512,
+  width: 1262,
+  height: 1262,
   smoothing: false,
 };
 
@@ -72,7 +93,7 @@ const pixelFormat = {
 };
 
 const background = {
-  generate: true,
+  generate: false,
   brightness: "80%",
   static: false,
   default: "#000000",
