@@ -140,3 +140,9 @@ dist
 # OSX
 
 .DS_Store
+
+#IDE
+
+.idea/
+
+layers/
